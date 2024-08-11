@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MRR-Ready</title>
+  </head>
+  <body>
+    <h1>色が変化したらキーを押してください</h1>
+  </body>
+  <style>
+    body {
+      background-color: red;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var param = location.search;
+    setTimeout(`redirect('${param}')`, ((Math.random() * 2) + 1)*1000);
+    function redirect(param){
+        location.href=`./click.html${param}`;
+    }
+  </script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MRR-Click</title>
+  </head>
+  <body>
+    <h1>色が変化したらキーを押してください</h1>
+  </body>
+  <style>
+    body {
+      background-color: green;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+    var param = new URL(window.location.href).searchParams;
+    var count = Number(param.get('count')) + 1;
+
+    var start = Date.now();
+    
+    document.addEventListener('keydown', event => {
+        var timeOnClick = Date.now();
+        var result = timeOnClick - start;
+        var data = Number(param.get('data')) + result;
+        if(count < 5){
+            location.href=`./wait.html?count=${count}&data=${data}`;
+        } else {
+            location.href=`./result.html?data=${data}`;
+        }
+    });
+
+    document.addEventListener('touchstart', event => {
+        var timeOnClick = Date.now();
+        var result = timeOnClick - start;
+        var data = Number(param.get('data')) + result;
+        if(count < 5){
+            location.href=`./wait.html?count=${count}&data=${data}`;
+        } else {
+            location.href=`./result.html?data=${data}`;
+        }
+    });
+
+  </script>
+
+</html>

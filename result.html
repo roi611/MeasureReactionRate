@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MRR-Result</title>
+  </head>
+  <body>
+    <h1>結果</h1>
+    <p>平均反応速度は <span id="result"></span> ms(<span id="result-in-second"></span> 秒)です。</p>
+    <a href="./index.html">
+      <button>戻る</button>
+    </a>
+
+    <script type="text/javascript">
+        var param = new URL(window.location.href).searchParams;
+        var data = Number(param.get('data'));
+        var result = data / 5;
+        document.getElementById('result').textContent = result;
+        document.getElementById('result-in-second').textContent = result / 1000;
+    </script>
+
+  </body>
+</html>
